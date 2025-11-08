@@ -114,6 +114,70 @@
             color: var(--primary);
         }
 
+        .contact-form-section {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 14px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .contact-intro {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
         section {
             padding: 60px 0;
             animation: fadeIn 1s ease;
@@ -144,10 +208,28 @@
             border-radius: 2px;
         }
 
-        .summary {
-            max-width: 800px;
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            max-width: 1000px;
             margin: 0 auto;
-            text-align: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            object-fit: cover;
+        }
+
+        .summary {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
             font-size: 1.1em;
             color: var(--gray);
             line-height: 1.8;
@@ -287,6 +369,27 @@
         .project-card p {
             color: var(--gray);
             line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border: 2px solid var(--primary);
+            border-radius: 6px;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .github-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
         }
 
         .education-box, .cert-box {
@@ -366,6 +469,9 @@
             .contact-info { flex-direction: column; gap: 15px; }
             .experience-header { flex-direction: column; }
             nav ul { flex-direction: column; align-items: center; }
+            .about-content { flex-direction: column; }
+            .profile-image { width: 100%; max-width: 300px; }
+            .summary { text-align: center; }
         }
     </style>
 </head>
@@ -390,15 +496,19 @@
             <li><a href="#projects">Projects</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
-            <p class="summary">
-                Detail-oriented Computer Technology graduate with practical experience in computer repair, IT support, and software troubleshooting. Skilled in diagnosing hardware faults, upgrading systems, configuring networks, and providing excellent customer service. Adept at combining technical expertise with strong communication skills to help clients solve hardware and software issues efficiently. Passionate about delivering reliable, high-quality technical solutions and contributing to customer satisfaction.
-            </p>
+            <div class="about-content">
+                <img src="image/levis.JPG" alt="Levis Odhiambo Graduation Photo" class="profile-image">
+                <p class="summary">
+                    Detail-oriented Computer Technology graduate with practical experience in computer repair, IT support, and software troubleshooting. Skilled in diagnosing hardware faults, upgrading systems, configuring networks, and providing excellent customer service. Adept at combining technical expertise with strong communication skills to help clients solve hardware and software issues efficiently. Passionate about delivering reliable, high-quality technical solutions and contributing to customer satisfaction.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -490,18 +600,72 @@
                     <h3>Computer Maintenance Portfolio</h3>
                     <p class="project-tech">Hardware & System Administration</p>
                     <p>Performed comprehensive upgrades, OS installations, and BIOS setups on multiple laptops, demonstrating hands-on expertise in system maintenance and configuration.</p>
+                    <a href="#" target="_blank" class="github-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        View on GitHub
+                    </a>
                 </div>
 
                 <div class="project-card">
                     <h3>E-Commerce Website</h3>
                     <p class="project-tech">Django, Python, MySQL</p>
                     <p>Designed and developed a functional e-commerce platform featuring user authentication, product management, and secure transaction handling.</p>
+                    <a href="https://github.com/dalyzhee/Ecommerce-Django.git" target="_blank" class="github-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        View on GitHub
+                    </a>
                 </div>
 
                 <div class="project-card">
                     <h3>Election Management System</h3>
                     <p class="project-tech">C Programming</p>
                     <p>Built a comprehensive voter registration and result-tallying system to automate election tasks, improving efficiency and accuracy.</p>
+                    <a href="#" target="_blank" class="github-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        View on GitHub
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Todo Application</h3>
+                    <p class="project-tech">Python, Django</p>
+                    <p>A simple CRUD (Create, Read, Update, Delete) Todo List built with Django, demonstrating models, class-based views, templates, and Bootstrap styling.</p>
+                    <a href="https://github.com/dalyzhee/Django-Todo.git" target="_blank" class="github-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        View on GitHub
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Flutter Todo App</h3>
+                    <p class="project-tech">Flutter, Django</p>
+                    <p>A cross-platform task management application built with Flutter for the frontend and Django for the backend. The app allows users to create, update, and delete to-do tasks with real-time synchronization to a secure RESTful API powered by Django and Django REST Framework. It features user authentication, clean UI design, and persistent data storage.</p>
+                    <a href="https://github.com/dalyzhee/Flutter-django-Todo-app.git" target="_blank" class="github-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        View on GitHub
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Near Jobs Site</h3>
+                    <p class="project-tech">Rust, Blockchain</p>
+                    <p>A blockchain-based job listing platform built on the NEAR protocol. This smart contract, written in Rust, enables organizations to post job opportunities and allows users to browse available positions seamlessly. It supports core functions such as adding, displaying, and automatically deleting jobs once their application deadlines expire.</p>
+                    <a href="https://github.com/dalyzhee/Near-jobs-app.git" target="_blank" class="github-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        View on GitHub
+                    </a>
                 </div>
             </div>
         </div>
@@ -535,6 +699,40 @@
                     <div>🌐 IoT Expert</div>
                     <div style="font-size: 0.9em; opacity: 0.9; margin-top: 5px;">Motorola (2021)</div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-form-section">
+                <p class="contact-intro">
+                    Have a project in mind or need IT support? I'd love to hear from you! Fill out the form below and I'll get back to you as soon as possible.
+                </p>
+                <form action="https://docs.google.com/forms/d/e/1FAIpQLSdt8Vb5EgQBMgt3yQyzw1QtjdbGWaoGHtp90xmjB1SU9vjQUQ/formResponse" method="POST" target="_blank">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="entry.5228613" required placeholder="John Doe">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="entry.1728873853" required placeholder="john@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="entry.1708564238" required placeholder="IT Support Inquiry">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="entry.816609486" required placeholder="Tell me about your project or how I can help..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
