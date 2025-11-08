@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Levis Odhiambo | Computer Technology Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #0ea5e9;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --accent: #06b6d4;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M0 0L50 50L0 100M50 0L100 50L50 100" stroke="white" stroke-opacity="0.1" fill="none"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            padding: 10px 25px;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        section {
+            padding: 60px 0;
+            animation: fadeIn 1s ease;
+        }
+
+        section:nth-child(even) {
+            background: white;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .summary {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1em;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .skill-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: var(--gray);
+        }
+
+        .skill-card li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .experience-timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .experience-item {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .experience-title {
+            font-size: 1.3em;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .experience-date {
+            color: var(--gray);
+            font-size: 0.95em;
+        }
+
+        .experience-company {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .experience-item ul {
+            margin-left: 20px;
+            color: var(--gray);
+        }
+
+        .experience-item li {
+            margin: 8px 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .project-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .project-tech {
+            color: var(--secondary);
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .project-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .education-box, .cert-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        .education-box h3, .cert-box h3 {
+            color: var(--primary);
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .education-meta, .cert-meta {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cert-item {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .cert-item:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            h2 { font-size: 2em; }
+            .contact-info { flex-direction: column; gap: 15px; }
+            .experience-header { flex-direction: column; }
+            nav ul { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container hero-content">
+            <h1>Levis Odhiambo</h1>
+            <p class="subtitle">Computer Technology Professional | IT Support Specialist</p>
+            <div class="contact-info">
+                <div class="contact-item">📍 Nairobi, Kenya</div>
+                <div class="contact-item">📞 +254 707 845 698</div>
+                <div class="contact-item">✉️ odhiambolevis967@gmail.com</div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p class="summary">
+                Detail-oriented Computer Technology graduate with practical experience in computer repair, IT support, and software troubleshooting. Skilled in diagnosing hardware faults, upgrading systems, configuring networks, and providing excellent customer service. Adept at combining technical expertise with strong communication skills to help clients solve hardware and software issues efficiently. Passionate about delivering reliable, high-quality technical solutions and contributing to customer satisfaction.
+            </p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Computer Hardware & IT Support</h3>
+                    <ul>
+                        <li>Laptop and desktop repair</li>
+                        <li>BIOS configuration & system upgrades</li>
+                        <li>Peripheral setup (printers, monitors, storage)</li>
+                        <li>Software troubleshooting (Windows, Linux)</li>
+                        <li>Malware removal & driver updates</li>
+                        <li>Network setup (LAN/Wi-Fi, router config)</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Software & Development</h3>
+                    <ul>
+                        <li>Python, Java, C++</li>
+                        <li>HTML, CSS, Django</li>
+                        <li>MySQL, MongoDB</li>
+                        <li>Git, Visual Studio</li>
+                        <li>Linux, Windows OS</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Problem-solving</li>
+                        <li>Customer service</li>
+                        <li>Teamwork & collaboration</li>
+                        <li>Clear communication</li>
+                        <li>Time management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Computer Technician</div>
+                            <div class="experience-company">Laptop Giga Garage — Maseno, Kenya</div>
+                        </div>
+                        <div class="experience-date">January 2022 – June 2022</div>
+                    </div>
+                    <ul>
+                        <li>Diagnosed and repaired laptops and desktop computers for students and local clients near Maseno University</li>
+                        <li>Performed system installations, BIOS updates, and hardware upgrades (RAM, SSDs, batteries)</li>
+                        <li>Resolved software issues including OS errors, driver conflicts, and virus infections</li>
+                        <li>Assisted customers with laptop purchases and technical advice</li>
+                        <li>Maintained repair records and supported complex diagnostics</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">IT Intern</div>
+                            <div class="experience-company">Kenya Forestry Research Institute (KEFRI) — Kiambu</div>
+                        </div>
+                        <div class="experience-date">July – September 2022</div>
+                    </div>
+                    <ul>
+                        <li>Diagnosed and repaired hardware and software issues across staff devices</li>
+                        <li>Installed and configured computer systems, improving uptime</li>
+                        <li>Assisted users with applications, network issues, and troubleshooting</li>
+                        <li>Maintained repair logs and supported data backup processes</li>
+                        <li>Worked with IT team to improve workflows</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Computer Maintenance Portfolio</h3>
+                    <p class="project-tech">Hardware & System Administration</p>
+                    <p>Performed comprehensive upgrades, OS installations, and BIOS setups on multiple laptops, demonstrating hands-on expertise in system maintenance and configuration.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>E-Commerce Website</h3>
+                    <p class="project-tech">Django, Python, MySQL</p>
+                    <p>Designed and developed a functional e-commerce platform featuring user authentication, product management, and secure transaction handling.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>Election Management System</h3>
+                    <p class="project-tech">C Programming</p>
+                    <p>Built a comprehensive voter registration and result-tallying system to automate election tasks, improving efficiency and accuracy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-box">
+                <h3>Bachelor of Science in Computer Technology</h3>
+                <div class="education-meta">
+                    <strong>Maseno University</strong> — Kisumu, Kenya | 2018 – 2022<br>
+                    <strong>Classification:</strong> Second Class Upper Division
+                </div>
+                <p style="color: var(--gray); margin-top: 10px;">
+                    <strong>Relevant Coursework:</strong> Computer Networks, Operating Systems, Hardware Maintenance, Database Systems, Web Development
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <h2>Certifications</h2>
+            <div class="certs-grid">
+                <div class="cert-item">
+                    <div>🔗 Blockchain Developer</div>
+                    <div style="font-size: 0.9em; opacity: 0.9; margin-top: 5px;">Near University (2022)</div>
+                </div>
+                <div class="cert-item">
+                    <div>🌐 IoT Expert</div>
+                    <div style="font-size: 0.9em; opacity: 0.9; margin-top: 5px;">Motorola (2021)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Levis Odhiambo. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Available for IT Support & Computer Repair opportunities</p>
+        </div>
+    </footer>
+</body>
+</html>
